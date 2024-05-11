@@ -1,0 +1,36 @@
+spring:
+  security:
+    basic:
+      enabled: false
+    oauth2:
+      client:
+        registration:
+          github:
+            clientId: please-set-it-accordingly
+            clientSecret: please-set-it-accordingly
+            scope: read:user, user:email
+  datasource:
+    url: jdbc:mysql://localhost:3306/ums
+    username: please-set-it-accordingly
+    password: please-set-it-accordingly
+  mvc:
+    log-request-details: true
+
+logging:
+  level:
+    org:
+      springframework:
+        web: DEBUG
+
+app:
+  security:
+    privateKey: please-set-it-accordingly
+    issuer: http://myuser.com
+    audience: tweeter
+
+server:
+  port: 8010
+
+springdoc:
+  enable-native-support: true
+  swagger-ui.path: /swagger-ui

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration monitorInterval="10" status="info">
+    <Appenders>
+        <Console name="CONSOLE" target="SYSTEM_OUT">
+            <PatternLayout pattern="%date{HH:mm:ss:SSS} %thread %level{length=4} [%logger] %m%n"/>
+            <ThresholdFilter level="DEBUG"/>
+        </Console>
+
+        <!--
+        https://logging.apache.org/log4j/2.x/manual/appenders.html#RollingFileAppender
+         -->
+        <RollingFile name="FILE"
+                     fileName="c:/temp/pms/logs/application.log"
+                     filePattern="c:/temp/pms/logs/application-%d{yyyy-MM-dd}.%i.log"
+                     append="true">
+            <PatternLayout pattern="%date{HH:mm:ss:SSS} %thread %level{length=4} [%logger] %m%n"/>
+            <ThresholdFilter level="DEBUG"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <Logger name="org.apache" level="info"></Logger>
+        <Logger name="org.springframework" level="info"></Logger>
+        <Logger name="org.springframework.web" level="debug"></Logger>
+
+        <Root level="info">
+            <AppenderRef ref="CONSOLE"/>
+            <AppenderRef ref="FILE"/>
+        </Root>
+    </Loggers>
+</Configuration>

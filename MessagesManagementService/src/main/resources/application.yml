@@ -1,0 +1,27 @@
+spring:
+  security:
+    basic:
+      enabled: false
+  datasource:
+    url: jdbc:mysql://localhost:3306/messages
+    username: please-set-it-accordingly
+    password: please-set-it-accordingly
+  mvc:
+    log-request-details: true
+
+logging:
+  level:
+    org:
+      springframework:
+        web: DEBUG
+
+app:
+  security:
+    auth-server-url: "http://localhost:8010"
+
+server:
+  port: 8020
+
+springdoc:
+  enable-native-support: true
+  swagger-ui.path: /swagger-ui
